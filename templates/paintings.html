@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="title" content="{{category.name}}| Eszter Wolf">
+	<meta name="description" content="{{category.name}}as a sustainable painting and somethimes also teaching process">
+	<meta name="keywords" content="Wofl Eszter festő, wolf eszter festő, Wolf Eszter, Eszter Wolf painter, eszter wolf painter, eszter wolf, {{category.name}}">
+	<meta name="robots" content="index, follow">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="English">
+	<meta name="revisit-after" content="31 days">
+	<meta name="author" content="Web'Still">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eszter Wolf - {{category.name}}</title>
+	<link rel="stylesheet" href="{% static 'assets/style/style.css' %}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link rel="icon" href="{% static 'assets/pics/favicon.png' %}">
+</head>
+<body>
+
+	{% include 'navbar.html' %}
+
+	<main>
+			<div class="title-dark">
+				<h2>{{category.name}}</h2>
+			</div>
+			<div class="light">
+				<div class="wrapper">
+					{% if paintings %}
+					{% for painting in paintings %}
+					<div class="paintings">
+						<img src="{{ painting.image.url }}" alt="{{painting.name}}">
+						<a href="{% url 'painting-certain' painting.name %}"><div class="paintings-hover">
+							<h3>{{painting.name}}</h3>
+							<p>{{painting.date}}</p>
+							<small style="color: var(--light); font-weight: 100">size {{painting.size1}} × {{painting.size2}} cm</small>
+							<a class="more" href="{% url 'painting-certain' painting.name %}">Click for more</a>
+						</div></a>
+					</div>
+					{% endfor %}
+					{% else %}
+					<h2 align="center" style="margin: 100px 0">There is no painting in this category yet!</h2>
+					{% endif %}
+				</div>
+			</div>
+
+		{% include 'footer.html' %}
+	</main>
+
+</body>
+</html>

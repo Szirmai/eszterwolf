@@ -1,0 +1,53 @@
+{% load static %}
+
+<nav class="nav-desktop">
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'assets/pics/logo.png' %}" alt="Eszter Wolf's logo"></a>
+            </div>
+            <div class="menu-item">
+                <ul>
+                    <li><a href="{% url 'home' %}">home</a></li>
+                    <li><a href="{% url 'painting-topic' %}">painting</a></li>
+                    <li><a href="{% url 'mapping-topic' %}">mapping</a></li>
+                    <li><a href="{% url 'connecting-topic' %}">connecting</a></li>
+                    <li><a href="{% url 'info' %}">info</a></li>
+                    <li><a href="{% url 'contact' %}">contact</a></li>
+                </ul>
+            </div>
+        </header>
+    </div>
+</nav>
+
+<nav class="nav-phone">
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'assets/pics/logo.png' %}" alt="Eszter Wolf's logo"></a>
+            </div>
+            <a class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+        </header>
+    </div>
+</nav>
+<div class="menu-item-phone">
+    <ul>
+        <li><a href="{% url 'home' %}">home</a></li>
+        <li><a href="{% url 'painting-topic' %}">painting</a></li>
+        <li><a href="{% url 'mapping-topic' %}">mapping</a></li>
+        <li><a href="{% url 'connecting-topic' %}">connecting</a></li>
+        <li><a href="{% url 'info' %}">info</a></li>
+        <li><a href="{% url 'contact' %}">contact</a></li>
+    </ul>
+</div>
+
+<script>const toggleButton = document.getElementsByClassName('toggle-button')[0]
+    const navbarLinks = document.getElementsByClassName('menu-item-phone')[0]
+    
+    toggleButton.addEventListener('click', () => {
+        navbarLinks.classList.toggle('active')
+    })</script>

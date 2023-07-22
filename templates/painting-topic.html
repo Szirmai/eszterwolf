@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="title" content="{{title}} | Eszter Wolf">
+	<meta name="description" content="{{title}} as a sustainable painting and somethimes also teaching process">
+	<meta name="keywords" content="Wofl Eszter festő, wolf eszter festő, Wolf Eszter, Eszter Wolf painter, eszter wolf painter, eszter wolf, {{title}}">
+	<meta name="robots" content="index, follow">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="English">
+	<meta name="revisit-after" content="31 days">
+	<meta name="author" content="Web'Still">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eszter Wolf - Painting</title>
+	<link rel="stylesheet" href="{% static 'assets/style/style.css' %}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link rel="icon" href="{% static 'assets/pics/favicon.png' %}">
+</head>
+<body>
+
+	{% include 'navbar.html' %}
+
+	<main>
+
+			<div class="title-dark baszakodos-light">
+				<h2>{{title}}</h2>
+			</div>
+			<div class="dark" style="padding: 10px">
+				<div class="row wrapper">
+					{% for paintingcategory in category %}
+					<a href="{% url 'paintings-sub-topic' paintingcategory.name %}"><div class="card-01-light">
+						<h3>{{paintingcategory.name}}</h3>
+					</div></a>
+					{% endfor %}
+				</div>
+			</div>
+
+		{% include 'footer.html' %}
+	</main>
+
+</body>
+</html>

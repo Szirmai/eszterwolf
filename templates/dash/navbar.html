@@ -1,0 +1,36 @@
+<nav>
+    <div class="top-nav">
+        <div class="float-left">
+            <div class="right">
+                <a href="{% url 'dash-home' %}"><span class="material-symbols-outlined logo">travel_explore</span></a>
+                <a href="{% url 'dash-home' %}"><h2>WEB'<i> Dash</i></h2></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="responsive-nav">
+        <div>
+            <ul class="flex-row-ect">
+                <li class="tiny-text-flex"><a href="{% url 'dash-home' %}"><span class="material-symbols-outlined">grid_view</span></a>
+                    <small>Dash</small>
+                </li>
+                <li class="tiny-text-flex"><a href="{% url 'painting' %}"><span class="material-symbols-outlined">format_paint</span></a>
+                    <small>Paint</small>
+                </li>
+                <li class="tiny-text-flex"><a href="{% url 'mapping' %}"><span class="material-symbols-outlined">public</span></a>
+                    <small>Mapping</small>
+                </li>
+                <li class="tiny-text-flex"><a href="{% url 'connecting' %}"><span class="material-symbols-outlined">electrical_services</span></a>
+                    <small>Connecting</small>
+                </li>
+                <li class="tiny-text-flex"><a href="{% url 'category' %}"><span class="material-symbols-outlined">interests</span></a>
+                    <small>Category</small>
+                </li>
+                <li class="tiny-text-flex"><a href="{% url 'logout' %}"><span class="material-symbols-outlined">logout</span></a>
+                    <small>Log Out</small>
+                </li>
+            </ul>
+        </div>
+    </div>

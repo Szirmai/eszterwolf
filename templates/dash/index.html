@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="robots" content="noindex">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Web'dash</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'dash/style.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<link rel="icon" href="{% static 'assets/pics/favicon.png' %}">
+</head>
+<body>
+	
+	{% include 'dash/navbar.html' %}
+
+
+<div class="grid">
+{% include 'dash/sidebar.html' %}
+
+    	<main class="main">
+
+			<div class="row">
+                <div class="card-03">
+					{% for message in messages %}
+						<p align="center"><h3 style="margin: 0 70px; display: block">{{message}}</h3></p>
+					{% endfor %}
+                </div>
+            </div>
+			
+    		<div class="row">
+                <div class="card-01">
+                	<div class="card-1-layout">
+                			<div class="info-1-left">
+                				<h3>Painting</h3>
+                				<h1>{{painting_count}}db</h1>
+                			</div>
+                			<div class="info-1-right"><span class="material-symbols-outlined card-1-des pos-ab">format_paint</span></div>
+                	</div>
+                </div>
+                <div class="card-01 ds-n-2">
+                	<div class="card-1-layout">
+                			<div class="info-1-left">
+                				<h3>Mapping</h3>
+                				<h1>{{mapping_count}}db</h1>
+                			</div>
+                			<div class="info-1-right"><span class="material-symbols-outlined card-1-des pos-ab">public</span></div>
+                	</div>
+                </div>
+                <div class="card-01">
+                	<div class="card-1-layout">
+                			<div class="info-1-left">
+                				<h3>Connecting</h3>
+                				<h1>{{connecting_count}}db</h1>
+                			</div>
+                			<div class="info-1-right"><span class="material-symbols-outlined card-1-des pos-ab">electrical_services</span></div>
+                	</div>
+                </div>
+            </div>
+ 
+            <div class="row">
+                <div class="card-03">
+					<a id="button" href="{% url 'upload-painting' %}">Upload Painting</a>
+					<a id="button" href="{% url 'upload-mapping' %}">Upload Mapping</a>
+					<a id="button" href="{% url 'upload-connecting' %}">Upload connecting</a>
+					<a id="button" href="{% url 'upload-category' %}">Add a category</a>
+                </div>
+            </div>
+           {% include 'dash/footer.html' %}
+		</main>
+</div>
+	<script type="text/javascript" src="./main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+	</body>
+</html>

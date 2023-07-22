@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="robots" content="noindex">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Web'dash</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'dash/style.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="icon" href="{% static 'assets/pics/favicon.png' %}">
+</head>
+<body>
+	
+	{% include 'dash/navbar.html' %}
+
+
+<div class="grid">
+{% include 'dash/sidebar.html' %}
+
+    	<main class="main">
+
+			<div class="row">
+                <div class="card-03">
+					{% for message in messages %}
+						<p align="center"><h3 style="margin: 0 70px; display: block">{{message}}</h3></p>
+					{% endfor %}
+                </div>
+            </div>
+			
+    		<div class="row">
+                <div class="card-02">
+                    <div>
+                        <a id="button" href="{% url 'upload-category' %}">Upload Category</a>
+                        <p align="center"><b>Category for connecting:</b></p>
+                        {% for connecting in connectings %}
+                            <p align="center">{{connecting.name}}<a style="margin: 2px 10px" href="{% url 'delete-connecting-category' connecting.id %}">Delete {{connecting.name}}</a></p>
+                        {% endfor %}
+                        <p align="center"><b>Category for mapping:</b></p>
+                        {% for mapping in mappings %}
+                            <p align="center">{{mapping.name}}<a style="margin: 2px 10px" href="{% url 'delete-mapping-category' mapping.id %}">Delete {{mapping.name}}</a></p>
+                        {% endfor %}
+
+                        <p align="center"><b>Category for paintings:</b></p>
+                        {% for painting in paintings %}
+                            <p align="center">{{painting.name}}<a style="margin: 2px 10px" href="{% url 'delete-painting-category' painting.id %}">Delete {{painting.name}}</a></p>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+           {% include 'dash/footer.html' %}
+		</main>
+</div>
+
+	</body>
+</html>

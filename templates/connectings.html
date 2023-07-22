@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="title" content="Connecting - {{category.name}} | Eszter Wolf">
+	<meta name="description" content="Connecting as a sustainable painting and sometimes also teaching process">
+	<meta name="keywords" content="Wofl Eszter festő, wolf eszter festő, Wolf Eszter, Eszter Wolf painter, eszter wolf painter, eszter wolf, connecting, connecting {{category.name}}">
+	<meta name="robots" content="index, follow">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="English">
+	<meta name="revisit-after" content="31 days">
+	<meta name="author" content="Web'Still">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eszter Wolf - {{category.name}}</title>
+	<link rel="stylesheet" href="{% static 'assets/style/style.css' %}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link rel="icon" href="{% static 'assets/pics/favicon.png' %}">
+</head>
+<body>
+
+	{% include 'navbar.html' %}
+
+	<main>
+			<div class="title-dark">
+				<h2>Connecting- {{category.name}}</h2>
+			</div>
+			<div class="light">
+				<div class="wrapper">
+					{% if connectings %}
+					{% for connecting in connectings %}
+					<div class="paintings">
+						<img src="{{ connecting.image.url }}" alt="{{connecting.title}}">
+						<a href="{% url 'connecting-certain' connecting.title %}"><div class="paintings-hover">
+							<h3>{{connecting.title}}</h3>
+							<p>{{connecting.category}}</p>
+							<!--<small>size  ×  cm</small>-->
+							<a class="more" href="{% url 'connecting-certain' connecting.title %}">Click for more</a>
+						</div></a>
+					</div>
+					{% endfor %}
+					{% else %}
+					<h2 align="center" style="margin: 100px 0">There is no connecting in this category yet!</h2>
+					{% endif %}
+				</div>
+			</div>
+
+		{% include 'footer.html' %}
+	</main>
+
+</body>
+</html>

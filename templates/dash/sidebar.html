@@ -1,0 +1,73 @@
+<style>
+    .nav-link.active {
+        color: blue;
+    }
+</style>
+<section>
+    <div class="sidebar-side">
+        <ul class="sidebar-nav">
+
+            <li class="nav-item">
+                <a href="{% url 'dash-home' %}" class="nav-link">
+                    <span class="material-symbols-outlined">grid_view</span>
+                    <h2 class="link-text">Dashboard</h2>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'painting' %}" class="nav-link">
+                    <span class="material-symbols-outlined">format_paint</span>
+                    <h2 class="link-text">Painting</h2>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'mapping' %}" class="nav-link">
+                    <span class="material-symbols-outlined">public</span>
+                    <h2 class="link-text">Mapping</h2>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'connecting' %}" class="nav-link">
+                    <span class="material-symbols-outlined">electrical_services</span>
+                    <h2 class="link-text">Connecting</h2>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'category' %}" class="nav-link">
+                    <span class="material-symbols-outlined">interests</span>
+                    <h2 class="link-text">Category</h2>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'logout' %}" class="nav-link">
+                    <span class="material-symbols-outlined">logout</span>
+                    <h2 class="link-text">Log out</h2>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+<!--<script>
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.forEach(otherLink => {
+                otherLink.classList.remove('active');
+            });
+            link.classList.add('active');
+        });
+    });
+</script>
+
+<style>
+    .nav-link.active {
+        color: blue;
+    }
+</style>-->
